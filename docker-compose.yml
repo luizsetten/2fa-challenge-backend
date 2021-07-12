@@ -7,6 +7,10 @@ services:
   app:
     # Basicamente o docker build
     build: .
+    # Define o ambiente dos containers
+    environment:
+      # Essa opção habilita a vizualização de alteração de documentos dentro do container
+      CHOKIDAR_USEPOLLING: "true"
     # Comando a ser executado assim que o container subir
     command: npm start
     # Redirecionamento de portas <host>:<container>
