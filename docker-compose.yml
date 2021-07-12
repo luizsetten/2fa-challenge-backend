@@ -1,0 +1,17 @@
+# Especifica a versão do compose
+version: "3"
+
+# Define os serviços da aplicação
+services:
+  # Define o nome do serviço
+  app:
+    # Basicamente o docker build
+    build: .
+    # Comando a ser executado assim que o container subir
+    command: npm start
+    # Redirecionamento de portas <host>:<container>
+    ports:
+      - "3000:3000"
+    # Refletir as pastas do sistema <host>:<container>
+    volumes:
+      - .:/usr/app
