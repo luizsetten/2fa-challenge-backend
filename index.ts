@@ -5,8 +5,6 @@ import bodyParser from 'body-parser';
 
 const app = express();
 
-const PORT = 3333;
-
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
@@ -55,6 +53,6 @@ app.post('/verify_token', (req, res) => {
   res.send({ token_is_valid });
 });
 
-app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`⚡️[server]: Server is running at Port ${process.env.PORT}`);
 });
