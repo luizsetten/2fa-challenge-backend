@@ -36,19 +36,11 @@ app.post('/generate_qr_code', (req, res) => {
 });
 
 app.post('/verify_token', (req, res) => {
-  // const token2 = speakeasy.totp({
-  //   secret: req.body.secret,
-  //   encoding: 'ascii'
-  // });
-  // console.log("Token valido", token2);
-
-
   const token_is_valid = speakeasy.totp.verify({
     secret: req.body.secret,
     encoding: 'ascii',
     token: String(req.body.token)
   });
-
 
   res.send({ token_is_valid });
 });
