@@ -15,6 +15,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('/', (req, res) => {
+  res.send({ ok: "It's working" });
+}
+);
+
 app.get('/get_secret', (req, res) => {
   const secret = speakeasy.generateSecret({
     name: "2FA sample"
